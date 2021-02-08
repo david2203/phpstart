@@ -7,19 +7,22 @@
 </head>
 <body>
 
+<form action="webb.php" method="POST">
+<input type="text" name="email">
+<input type="submit" value ="send">
+</form>
 
-    <?php 
-    $array = [];
-    
-    $array[0] = $_GET["name"];
 
-    $count = count($array);
+<?php
+$email = $_POST["email"];
 
-    for ($i = 0; $i < $count; $i++) {
-          echo $array[$i];
-     }
-    ?>
-    
+if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  echo("$email is a valid email address");
+} else {
+  echo("$email is not a valid email address");
+}
+?>
+
 </body>
-</html>
+</html> 
 
